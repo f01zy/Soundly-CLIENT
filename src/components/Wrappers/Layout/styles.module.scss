@@ -1,0 +1,11 @@
+.children {
+  position: relative;
+  width: calc(100vw - var(--sidebar-width));
+  margin-left: var(--sidebar-width);
+  height: auto;
+
+  @media(max-width: 600px) {
+    width: 100%;
+    margin-left: 0;
+  }
+}

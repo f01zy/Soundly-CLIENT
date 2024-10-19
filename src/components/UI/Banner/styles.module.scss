@@ -1,0 +1,25 @@
+.banner {
+  width: 100%;
+  height: 35vh;
+  background: #c4c4c4;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+
+  .content {
+    padding: 20px;
+
+    h2 {
+      font-size: 25px;
+      color: #000;
+    }
+
+    p {
+      font-size: 17px;
+      color: #000;
+      margin-top: 10px;
+      width: 100%;
+    }
+  }
+}

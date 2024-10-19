@@ -1,0 +1,26 @@
+.alert {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity .7s ease;
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 10px 10px;
+  z-index: 3;
+  border-radius: 5px;
+  width: max-content;
+
+  &.active {
+    opacity: 1;
+  }
+
+  &.disable {
+    opacity: 0;
+  }
+
+  &.activePlayer {
+    bottom: calc(var(--player-height) + 20px);
+  }
+}

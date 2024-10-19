@@ -1,0 +1,100 @@
+.profile {
+  $avatar: 90px;
+  width: 100%;
+  height: auto;
+
+  .user {
+    margin-bottom: 30px;
+
+    .container {
+      width: 100%;
+      height: 30vh;
+      position: relative;
+      margin-bottom: 60px;
+
+      .banner {
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        background: #222;
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin-bottom: calc($avatar / -2);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .user_info {
+        display: flex;
+        margin-left: calc($avatar / 2);
+
+        h3 {
+          font-size: 19px;
+          margin-top: 10px;
+        }
+
+        p {
+          font-size: 15px;
+          color: #bababa;
+          margin-top: 13px;
+          margin-left: 10px;
+        }
+      }
+    }
+
+    .description {
+      margin-left: calc($avatar / 2);
+      margin-top: 10px;
+    }
+
+    .links {
+      margin-left: calc($avatar / 2);
+
+      ul {
+        li {
+          a {
+            text-decoration: underline;
+
+            &:not(:first-child) {
+              margin-top: 8px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  nav {
+    padding: 0px calc($avatar / 2);
+
+    ul {
+      display: flex;
+
+      li {
+        cursor: pointer;
+
+        &:not(:first-child) {
+          margin-left: 15px;
+        }
+      }
+    }
+  }
+
+  .createButton {
+    padding: 0px calc($avatar / 2);
+    width: 300px;
+    margin-bottom: 20px;
+  }
+
+  .tracks {
+    padding: 0px calc($avatar / 2);
+    margin-top: 20px;
+    padding-bottom: 100px;
+
+    .track {
+      &:not(:first-child) {
+        margin-top: 10px;
+      }
+    }
+  }
+}

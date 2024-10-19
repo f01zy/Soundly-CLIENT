@@ -1,0 +1,64 @@
+.playerContainer {
+  position: fixed;
+  width: 100%;
+  height: var(--player-height);
+  bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+
+  .player {
+    width: max-content;
+    height: 100%;
+    border-radius: 5px;
+    padding: 10px 10px;
+    background: var(--card-background);
+
+    .buttons {
+      display: flex;
+      margin-left: 10px;
+
+      .button {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        margin-left: 10px;
+        margin-right: 10px;
+
+        svg,
+        img {
+          width: 70%;
+          height: auto;
+        }
+      }
+    }
+
+    .bar {
+      margin-top: 13px;
+      width: 100%;
+      height: 7px;
+      background: #333;
+      border-radius: 10px;
+      position: relative;
+
+      div {
+        position: absolute;
+        height: 100%;
+        left: 0;
+        top: 0;
+        border-radius: 10px;
+        background: #FFF;
+      }
+    }
+
+    @media(max-width:500px) {
+      .title {
+        display: none;
+      }
+    }
+  }
+}
