@@ -34,7 +34,7 @@ const WindowForm: FC<IWindowForm> = ({ inputs, onSubmit, title }) => {
 
       {inputs.flatMap(input => <Input {...(input as TInputExtends)} register={register} required />)}
 
-      <Button type="submit">{loading ? <Image unoptimized src={"/loader.svg"} width={30} height={100} alt="loader" /> : "Upload"}</Button>
+      <Button className="mt-5" style={{ width: "100%", height: "40px" }} type="submit">{loading ? <Image unoptimized src={"/loader.svg"} width={30} height={100} alt="loader" /> : "Upload"}</Button>
     </form>
   </div>
 }

@@ -3,7 +3,7 @@ import { IPlaylist } from "./playlist.interface"
 
 export interface IUser {
   _id: string
-  isAdmin: boolean
+  isStaff: boolean
   username: string
   email: string
   isActivated: boolean
@@ -15,4 +15,6 @@ export interface IUser {
   tracks: Array<IMusic>
   history: Array<IMusic>
   playlists: Array<IPlaylist>
+  subscriptions: Array<IUser>,
+  subscribers: Array<IUser>
 }

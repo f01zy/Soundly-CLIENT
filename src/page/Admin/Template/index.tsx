@@ -31,7 +31,7 @@ const AdminTemplate: FC<{ page: TPage }> = ({ page }) => {
     })
   }, [])
 
-  if (!user || !user.isAdmin) return <div className="flex w-full h-full justify-center items-center">
+  if (!user || !user.isStaff) return <div className="flex w-full h-full justify-center items-center">
     <h1 className="text-base">Access is denied</h1>
   </div>
 

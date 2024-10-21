@@ -22,6 +22,8 @@ import Skeleton from "@/components/UI/Skeleton"
 import Button from "@/components/UI/Button"
 import ConfirmEmailBanner from "@/components/UI/ConfirmEmailBanner"
 import { alert } from "@/utils/alert.utils"
+import { setUser } from "@/store/user/user.slice"
+import { handleClickBlock } from "@/utils/handleClickBlock.utils"
 
 enum ESlide { "Tracks", "Playlists" }
 const length = Object.keys(ESlide).length / 2
@@ -35,7 +37,7 @@ const Profile: FC<{ id: string }> = ({ id }) => {
   const [fetchUser, setFetchUser] = useState<IUser>()
   const [slide, setSlide] = useState<ESlide>(ESlide.Tracks)
   const { user } = useTypedSelector(selector => selector.userSlice)
-  const { windowForm } = useTypedSelector(selector => selector.siteSlice)
+  const { windowForm, blocked } = useTypedSelector(selector => selector.siteSlice)
   const dispatch = useDispatch<AppDispatch>()
 
   const avatar = 90
@@ -52,6 +54,14 @@ const Profile: FC<{ id: string }> = ({ id }) => {
     if (!user.isActivated) return alert(dispatch, "Confirm your email")
 
     dispatch(setWindowForm(menu))
+  }
+
+  const subscribe = () => {
+    if (!user || !fetchUser) return
+    if (!user.isActivated) return alert(dispatch, "Confirm your email")
+    const isBlocked = handleClickBlock(dispatch, blocked); if (isBlocked) return
+    $api.post(`/users/${fetchUser._id}/subscribe`)
+      .then(res => dispatch(setUser(res.data)))
   }
 
   useEffect(() => { $api.get<IUser>(`/users/${id}`).then(res => setFetchUser(res.data)) }, [])
@@ -78,6 +88,20 @@ const Profile: FC<{ id: string }> = ({ id }) => {
           <h3>{fetchUser.username}</h3>
           <p>{fetchUser.tracks.length} tracks</p>
           <p>{fetchUser.playlists.length} playlists</p>
+          {
+            user && user._id != fetchUser._id ? <Button
+              variant={
+                user.subscriptions.some(item => item._id === fetchUser._id) ?
+                  "danger" :
+                  "default"
+              }
+              className="mt-2 ml-2"
+              style={{ width: "120px", height: "30px" }}
+              onClick={subscribe}
+            >
+              {user.subscriptions.some(item => item._id === fetchUser._id) ? "Unsubscribe" : "Subscribe"}
+            </Button> : ""
+          }
           {user?._id === fetchUser._id && <RiEdit2Fill style={{ marginTop: "15px" }} width={30} onClick={() => dispatch(setWindowForm("editProfile"))} className="ml-3 cursor-pointer" />}
         </div>
       </div>
@@ -100,12 +124,22 @@ const Profile: FC<{ id: string }> = ({ id }) => {
     </nav>
 
     {slide === ESlide.Tracks ? <>
-      {user?._id === fetchUser._id && <div className={styles.createButton} onClick={() => openCreateMenu("uploadTrack")}><Button>Upload</Button></div>}
+      {
+        user?._id === fetchUser._id &&
+        <div className={styles.createButton} onClick={() => openCreateMenu("uploadTrack")}>
+          <Button className="mt-5" style={{ width: "100%", height: "40px" }}>Upload</Button>
+        </div>
+      }
       <div className={styles.tracks}>{fetchUser.tracks.map(track => <div className={styles.track}><CardRow key={track._id} {...track} /></div>)}</div>
     </> : ""}
 
     {slide === ESlide.Playlists ? <>
-      {user?._id === fetchUser._id && <div className={styles.createButton} onClick={() => openCreateMenu("createPlaylistStepOne")}><Button>Create</Button></div>}
+      {
+        user?._id === fetchUser._id &&
+        <div className={styles.createButton} onClick={() => openCreateMenu("createPlaylistStepOne")}>
+          <Button className="mt-5" style={{ width: "100%", height: "40px" }}>Create</Button>
+        </div>
+      }
       <div className={styles.tracks}>{fetchUser.playlists.map(playlist => playlist.author._id === fetchUser._id && <div className={styles.track}><CardRow key={playlist._id} {...playlist} /></div>)}</div>
     </> : ""}
   </div> : <div className={styles.profile}>

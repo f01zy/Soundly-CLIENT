@@ -1,17 +1,14 @@
 import styles from "@/components/UI/Button/styles.module.scss"
-import { FC } from "react"
+import { FC, ButtonHTMLAttributes } from "react"
 
 type TVariant = "default" | "danger"
 
-interface IButton {
+interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: TVariant
-  type?: "button" | "submit" | "reset";
-  disabled?: boolean
-  onSubmit?: any;
   children: React.ReactNode;
 }
 
-const Button: FC<IButton> = ({ children, onSubmit, type, disabled, variant }) => {
+const Button: FC<IButton> = ({ children, variant, ...props }) => {
   const variantStyles: Record<TVariant, string> = {
     "default": "bg-white text-black",
     "danger": "bg-red-600 text-white"
@@ -20,10 +17,9 @@ const Button: FC<IButton> = ({ children, onSubmit, type, disabled, variant }) =>
   const defVariant = variant || "default"
 
   return <button
-    disabled={disabled}
-    type={type}
-    onSubmit={onSubmit}
-    className={`${styles.button} ${variantStyles[defVariant]}`}
+    {...props}
+
+    className={`${styles.button} ${variantStyles[defVariant]} ${props.className}`}
   >{children}</button>
 }
 

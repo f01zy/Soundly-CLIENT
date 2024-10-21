@@ -1,1 +1,10 @@
-.home {}
+.home {
+  .subscriptions {
+    margin-bottom: 30px;
+
+    h2 {
+      font-size: 25px;
+      margin-bottom: 10px;
+    }
+  }
+}

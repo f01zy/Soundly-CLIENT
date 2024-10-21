@@ -20,8 +20,8 @@ const AdminNavigation = () => {
       ))}
     </ul>
     <div className={styles.danger}>
-      <div className="w-32"><Button variant="danger">Delete all</Button></div>
-      <div className="w-32 ml-3"><Button>Database</Button></div>
+      <Button style={{ width: "130px", height: "35px" }} variant="danger">Delete all</Button>
+      <Button className="ml-2" style={{ width: "130px", height: "35px" }}>Database</Button>
     </div>
   </nav>
 }

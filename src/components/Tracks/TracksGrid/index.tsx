@@ -31,7 +31,7 @@ const TracksGrid: FC<ITracksGrid> = ({ quantity, label, sort, tracks: tempTracks
     {
       music && music.length === 0 ?
         <h4 className="text-sm mt-2">It's empty so far. Maybe you're the one who uploaded the first track?</h4> :
-        <div className={styles.songs}>{music ? music.map(song => <Card key={song._id} {...song} />) : quantitySkeletons.map(() => <div className="w-full h-60 relative mt-5"><Skeleton width="170px" height="100%" /></div>)}</div>
+        <div className="gridStyles">{music ? music.map(song => <Card key={song._id} {...song} />) : quantitySkeletons.map(() => <div className="w-full h-60 relative mt-5"><Skeleton width="170px" height="100%" /></div>)}</div>
     }
   </div>
 }

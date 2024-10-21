@@ -47,7 +47,13 @@ const CreatePlaylistStepTwo = () => {
           <input className="h-full w-auto ml-4" type="checkbox" onChange={e => { e.target.checked ? setTracks([...tracks, track._id]) : setTracks(tracks.filter(clearTrack => clearTrack != track._id)) }} />
         </div>) : ""}
       </div>
-      <Button type="submit">{loading ? <Image unoptimized src={"/loader.svg"} width={30} height={100} alt="loader" /> : "Create playlist"}</Button>
+      <Button className="mt-5" style={{ width: "100%", height: "40px" }} type="submit">
+        {
+          loading ?
+            <Image unoptimized src={"/loader.svg"} width={30} height={100} alt="loader" /> :
+            "Create playlist"
+        }
+      </Button>
     </form>
   </div>
 }

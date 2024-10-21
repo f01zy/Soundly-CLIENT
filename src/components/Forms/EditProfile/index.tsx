@@ -101,7 +101,13 @@ const EditProfile = () => {
         {links.map((link, index) => <div className="mt-2 w-full flex items-center justify-between"><Input defaultValue={link} label="link" type="url" onChange={e => { let tempLinks = links; tempLinks[index] = e.target.value; setLinks(tempLinks) }} />{links.length > 1 && <IoMdClose className="ml-4" onClick={() => setLinks(links.filter((_, i) => i != index))} />}</div>)}
       </div>
 
-      <Button type="submit">{loading ? <Image unoptimized src={"/loader.svg"} width={30} height={100} alt="loader" /> : "Save changes"}</Button>
+      <Button className="mt-5" style={{ width: "100%", height: "40px" }} type="submit">
+        {
+          loading ?
+            <Image unoptimized src={"/loader.svg"} width={30} height={100} alt="loader" /> :
+            "Save changes"
+        }
+      </Button>
     </form>
   </div>
 }
