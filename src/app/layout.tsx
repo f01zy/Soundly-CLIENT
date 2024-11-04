@@ -1,6 +1,7 @@
+import "@/base.scss";
+import "@/markdown.scss"
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "@/base.scss";
 import { Providers } from "@/components/Wrappers/Providers";
 import Layout from "@/components/Wrappers/Layout";
 

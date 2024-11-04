@@ -1,0 +1,19 @@
+.sidebar {
+  width: var(--sidebar-width);
+  height: calc(100vh - var(--navigation-height));
+  bottom: 0;
+  right: 0;
+  background: var(--background);
+  padding: 0 var(--global-padding);
+  position: fixed;
+  z-index: 4;
+
+  .posts {
+    max-height: 40vh;
+    padding-right: 10px;
+  }
+
+  @media(max-width: 830px) {
+    display: none;
+  }
+}

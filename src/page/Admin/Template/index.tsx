@@ -7,10 +7,11 @@ import { useTypedSelector } from "@/hooks/selector.hook"
 import { $api } from "@/http"
 import styles from "@/page/Admin/Template/styles.module.scss"
 import Image from "next/image"
+import Link from "next/link"
 import { useState, useEffect, FC } from "react"
 import { MdDelete } from "react-icons/md";
 
-type TPage = "Users" | "Tracks"
+type TPage = "Users" | "Tracks" | "Posts"
 
 const AdminTemplate: FC<{ page: TPage }> = ({ page }) => {
   const { user } = useTypedSelector(selector => selector.userSlice)
@@ -20,7 +21,8 @@ const AdminTemplate: FC<{ page: TPage }> = ({ page }) => {
 
   const paths = {
     "Users": "users",
-    "Tracks": "music"
+    "Tracks": "music",
+    "Posts": "post"
   }
 
   useEffect(() => {
@@ -58,6 +60,7 @@ const AdminTemplate: FC<{ page: TPage }> = ({ page }) => {
               <div className="flex items-center justify-between">
                 {page === "Users" && <User {...el} />}
                 {page === "Tracks" && <CardRow {...el} />}
+                {page === "Posts" && <Link href={`/posts/${el._id}`}>{el.title}</Link>}
                 {
                   contentLoading.includes(el._id) ?
                     <Image className={styles.deleteLoader} src={"/circle-loader-white.svg"} alt="loading" width={100} height={100} /> :

@@ -9,7 +9,7 @@ $input-height: 40px;
   justify-content: space-between;
   padding-right: 50px;
   position: fixed;
-  z-index: 4;
+  z-index: 5;
   background: var(--background);
   padding: 0 var(--global-padding);
 
@@ -178,7 +178,6 @@ $input-height: 40px;
       border: 2px solid rgba(255, 255, 255, 0.1);
       box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
       border-radius: 5px;
-      transition: all .3s ease;
     }
   }
 

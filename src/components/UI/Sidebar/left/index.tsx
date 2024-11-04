@@ -1,12 +1,12 @@
 "use client"
 
-import styles from "@/components/UI/Sidebar/styles.module.scss"
+import styles from "@/components/UI/Sidebar/left/styles.module.scss"
 import { browseMusic, libraryLinks } from "@/config";
 import { useTypedSelector } from "@/hooks/selector.hook";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const Sidebar = () => {
+const SidebarLeft = () => {
   const isOpen = useTypedSelector(selector => selector.siteSlice.sidebar)
   const pathname = usePathname()
 
@@ -28,4 +28,4 @@ const Sidebar = () => {
   </aside>
 }
 
-export default Sidebar;
+export default SidebarLeft;

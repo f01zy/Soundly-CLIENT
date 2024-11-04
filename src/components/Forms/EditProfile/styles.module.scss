@@ -1,65 +1,26 @@
 .form {
-  width: fit-content;
-  height: fit-content;
-  padding: 20px 20px;
-  background-color: #202020;
-  border-radius: 10px;
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  z-index: 4;
+  width: 55vw;
+  height: var(--edit-profile-menu-height);
+  flex-direction: row;
+  align-items: start;
+  justify-content: start;
+  padding: 0;
 
-  form {
-    width: 100%;
-    position: relative;
-    max-height: 500px;
-    overflow-y: auto;
-    padding-right: 10px;
+  .pageContainer {
+    width: 73%;
+    height: 100%;
+    padding: 10px;
 
-    input[type=file] {
-      position: absolute;
+    @media(max-width: 710px) {
       width: 100%;
-      height: 100%;
-      opacity: 0;
-      top: 0;
     }
+  }
 
-    .load {
-      height: auto;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      margin: auto;
-    }
+  @media(max-width: 940px) {
+    width: 80vw;
+  }
 
-    .banner {
-      width: 350px;
-      height: 200px;
-      background: var(--card-background);
-      border-radius: 5px;
-      position: relative;
-    }
-
-    .avatar {
-      width: 60px;
-      height: 60px;
-      border-radius: 100%;
-      margin-top: 20px;
-      background: var(--card-background);
-      margin-bottom: 10px;
-      position: relative;
-      overflow: hidden;
-    }
+  @media(max-width: 710px) {
+    width: 95vw;
   }
 }

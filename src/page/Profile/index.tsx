@@ -24,8 +24,10 @@ import ConfirmEmailBanner from "@/components/UI/ConfirmEmailBanner"
 import { alert } from "@/utils/alert.utils"
 import { setUser } from "@/store/user/user.slice"
 import { handleClickBlock } from "@/utils/handleClickBlock.utils"
+import Post from "@/components/UI/Post"
+import UploadPost from "@/components/Forms/UploadPost"
 
-enum ESlide { "Tracks", "Playlists" }
+enum ESlide { "Tracks", "Playlists", "Posts" }
 const length = Object.keys(ESlide).length / 2
 const values: Array<string> = []
 
@@ -46,7 +48,8 @@ const Profile: FC<{ id: string }> = ({ id }) => {
     ["uploadTrack", Upload],
     ["editProfile", EditProfile],
     ["createPlaylistStepOne", CreatePlaylistStepOne],
-    ["createPlaylistStepTwo", CreatePlaylistStepTwo]
+    ["createPlaylistStepTwo", CreatePlaylistStepTwo],
+    ["uploadPost", UploadPost]
   ]
 
   const openCreateMenu = (menu: TWindowForm) => {
@@ -85,7 +88,7 @@ const Profile: FC<{ id: string }> = ({ id }) => {
         <div className={styles.banner}>{fetchUser.banner && <Image unoptimized src={`${SERVER_URL}/banner/${fetchUser._id}.jpg`} alt="banner" width={100} height={100} className="w-full h-full" />}</div>
         <div className={styles.user_info}>
           <Avatar user={fetchUser} width={avatar} height={avatar} />
-          <h3>{fetchUser.username}</h3>
+          <h3 className="ml-4">{fetchUser.username}</h3>
           <p>{fetchUser.tracks.length} tracks</p>
           <p>{fetchUser.playlists.length} playlists</p>
           {
@@ -141,6 +144,16 @@ const Profile: FC<{ id: string }> = ({ id }) => {
         </div>
       }
       <div className={styles.tracks}>{fetchUser.playlists.map(playlist => playlist.author._id === fetchUser._id && <div className={styles.track}><CardRow key={playlist._id} {...playlist} /></div>)}</div>
+    </> : ""}
+
+    {slide === ESlide.Posts ? <>
+      {
+        user?._id === fetchUser._id &&
+        <div className={styles.createButton} onClick={() => openCreateMenu("uploadPost")}>
+          <Button className="mt-5" style={{ width: "100%", height: "40px" }}>Upload</Button>
+        </div>
+      }
+      <div className={styles.tracks}>{fetchUser.posts.map(post => post.author._id === fetchUser._id && <div className={styles.track}><Post key={post._id} {...post} /></div>)}</div>
     </> : ""}
   </div> : <div className={styles.profile}>
     <div className={styles.user}>

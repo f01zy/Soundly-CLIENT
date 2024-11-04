@@ -1,9 +1,9 @@
 "use client"
 
+import styles from "@/components/Wrappers/Layout/styles.module.scss"
 import { useParams, usePathname } from "next/navigation";
 import Navigation from "@/components/UI/Navigation/default";
-import Sidebar from "@/components/UI/Sidebar";
-import styles from "@/components/Wrappers/Layout/styles.module.scss"
+import SidebarLeft from "@/components/UI/Sidebar/left";
 import { useAuth } from "@/hooks/auth.hook";
 import Player from "../../UI/Player";
 import { PlayerController } from "@/utils/music/playerController.utils";
@@ -12,7 +12,7 @@ import Mask from "../../UI/Mask";
 import { TMusicMode } from "@/types/musicMode.type";
 import Alert from "@/components/UI/Alert";
 import AdminNavigation from "@/components/UI/Navigation/admin";
-import ConfirmEmailBanner from "@/components/UI/ConfirmEmailBanner";
+import SidebarRight from "@/components/UI/Sidebar/right";
 
 export const playerController = new PlayerController()
 export let musicInterval: NodeJS.Timeout | null = null
@@ -55,8 +55,9 @@ const Layout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
 
   return <>
     {!isHideNavigation && <Nav />}
-    {!isHideSidebar && <Sidebar />}
-    {!isHideSidebar ? <div className={styles.children}>{children}</div> : <>{children}</>}
+    {!isHideSidebar && <SidebarLeft />}
+    {!isHideSidebar && <SidebarRight />}
+    <div className={`${styles.children} ${isHideSidebar ? styles.hide : ""}`}>{children}</div>
     <Player />
     {sidebar || windowForm || (result.music.length > 0) ? <Mask /> : ""}
     <Alert />

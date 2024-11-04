@@ -1,6 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit"
 
-export type TWindowForm = "uploadTrack" | "editProfile" | "createPlaylistStepOne" | "createPlaylistStepTwo" | null
+export type TWindowForm =
+  "uploadPost" |
+  "uploadTrack" |
+  "editProfile" |
+  "createPlaylistStepOne" |
+  "createPlaylistStepTwo" |
+  null
 
 interface ISite {
   blocked: boolean,

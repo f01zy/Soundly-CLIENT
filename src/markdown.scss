@@ -1,0 +1,123 @@
+$text-color: #ffffff;
+$secondary-color: #26222c;
+$hover-color: #555555;
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+
+.markdown h1 {
+  font-size: 2.2em;
+}
+
+.markdown h2 {
+  font-size: 1.8em;
+}
+
+.markdown h3 {
+  font-size: 1.5em;
+}
+
+.markdown h4 {
+  font-size: 1.3em;
+}
+
+.markdown h5 {
+  font-size: 1.1em;
+}
+
+.markdown h6 {
+  font-size: 1em;
+}
+
+.markdown p {
+  margin-bottom: 1.2em;
+}
+
+.markdown a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.markdown a:hover {
+  text-decoration: underline;
+}
+
+.markdown ul,
+.markdown ol {
+  margin-bottom: 1.2em;
+  padding-left: 2em;
+}
+
+.markdown li {
+  margin-bottom: 0.5em;
+}
+
+.markdown blockquote {
+  border-left: 4px solid var(--primary-color);
+  padding-left: 1em;
+  margin: 1em 0;
+  font-style: italic;
+  color: #b3b3b3;
+}
+
+.markdown code {
+  background-color: rgba(239, 68, 68, 0.1);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-family: monospace;
+  font-size: 0.9em;
+}
+
+.markdown pre {
+  background-color: $secondary-color;
+  padding: 1em;
+  border-radius: 5px;
+  overflow-x: auto;
+  margin-bottom: 1.2em;
+}
+
+.markdown pre code {
+  background-color: transparent;
+  padding: 0;
+  font-size: 0.9em;
+}
+
+.markdown img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1em auto;
+  border-radius: 5px;
+}
+
+.markdown hr {
+  border: none;
+  border-top: 1px solid $hover-color;
+  margin: 2em 0;
+}
+
+.markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.2em;
+}
+
+.markdown table th,
+.markdown table td {
+  border: 1px solid $hover-color;
+  padding: 0.5em;
+}
+
+.markdown table th {
+  background-color: $secondary-color;
+  font-weight: bold;
+}

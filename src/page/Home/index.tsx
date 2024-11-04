@@ -18,7 +18,7 @@ const Home = () => {
           <div className="gridStyles">
             {
               user.subscriptions.slice(0, 5).map(item => <Link href={`/profile/${item._id}`}>
-                <Avatar user={item} height={150} width={150} />
+                <Avatar user={item} height={120} width={120} />
               </Link>)
             }
           </div>

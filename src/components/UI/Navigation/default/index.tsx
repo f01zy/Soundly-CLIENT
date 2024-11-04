@@ -8,6 +8,7 @@ import { setCurrentMusic } from "@/store/music/music.slice";
 import { AppDispatch } from "@/store/store";
 import { setUser } from "@/store/user/user.slice";
 import Link from "next/link";
+import { HiOutlineMenu } from "react-icons/hi";
 import { usePathname } from "next/navigation";
 import { useState, ChangeEvent } from "react";
 import { IoSearchSharp } from "react-icons/io5";
@@ -58,14 +59,18 @@ const Navigation = () => {
       {links.map(link => (
         <li key={link[1]}><Link href={link[1]} className={pathname === link[1] ? styles.active : ""}>{link[0]}</Link></li>
       ))}
+      {
+        user && user.isStaff && <li><Link href={"/admin"}>Admin panel</Link></li>
+      }
     </ul>
     {user ? (
-      <div className={styles.user} onClick={() => {
-        setUserMenu(!userMenu)
-      }}>
-        <p className="mr-3">{user.username}</p>
+      <div className={styles.user}>
         <Avatar user={user} width={avatar} height={avatar} />
-        <div className={`${styles.menu} ${userMenu ? "visible opacity-100" : "invisible opacity-0"}`}>
+        <p className="ml-4">{user.username}</p>
+        <HiOutlineMenu className="ml-4 w-8 h-8" onClick={() => {
+          setUserMenu(!userMenu)
+        }} />
+        <div className={`${styles.menu} ${userMenu ? "visible" : "invisible"}`}>
           <ul>
             <Link href={`/profile/${user._id}`}><li>Profile</li></Link>
             <li onClick={() => {

@@ -32,7 +32,7 @@ const CreatePlaylistStepTwo = () => {
     await $api.post("/playlist", { tracks, description: create.description, name: create.name }).then(() => { setLoading(false); dispatch(setWindowForm(null)) }).catch(() => setError(true))
   }
 
-  return <div className={styles.selectTracks}>
+  return <div className={`${styles.selectTracks} formBaseStyles`}>
     <div className="flex justify-between items-center w-full mt-2 mb-2">
       <h1>Edit profile</h1>
       <IoMdClose width={25} height={25} onClick={() => dispatch(setWindowForm(null))} />

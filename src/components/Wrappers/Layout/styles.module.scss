@@ -1,8 +1,13 @@
 .children {
   position: relative;
-  width: calc(100vw - var(--sidebar-width));
+  width: calc(100vw - var(--sidebar-width) * 2);
   margin-left: var(--sidebar-width);
   height: auto;
+
+  &.hide {
+    width: 100%;
+    margin-left: 0;
+  }
 
   @media(max-width: 600px) {
     width: 100%;
