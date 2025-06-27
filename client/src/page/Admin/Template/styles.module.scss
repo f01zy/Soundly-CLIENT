@@ -1,0 +1,17 @@
+.admin {
+  .deleteIcon {
+    width: 23px;
+    height: 23px;
+    margin-left: 20px;
+
+    &:hover {
+      fill: red;
+    }
+  }
+
+  .deleteLoader {
+    width: 23px;
+    height: auto;
+    margin-left: 20px;
+  }
+}

@@ -1,0 +1,27 @@
+.results {
+  left: 0;
+  top: var(--navigation-height);
+  position: absolute;
+  width: calc(var(--input-width) * 2);
+  height: max-content;
+  max-height: calc(100vh - var(--player-height) - var(--navigation-height) - 30px);
+  padding: 10px 10px;
+  overflow-y: auto;
+  background: var(--card-background);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: opacity .3s ease;
+  z-index: 4;
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

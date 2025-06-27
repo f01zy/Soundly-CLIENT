@@ -1,0 +1,100 @@
+.card {
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  overflow: hidden;
+  $width: 150px;
+
+  .container {
+    padding: 10px 10px;
+    background: var(--background);
+    width: max-content;
+    border-radius: 5px;
+
+    &:hover {
+      background: var(--card-background);
+    }
+
+    h3 {
+      width: $width;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    p {
+      font-size: 14px;
+      color: #9b9b9b;
+      width: $width;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .cover {
+      width: $width;
+      height: $width;
+      position: relative;
+      margin-bottom: 5px;
+
+      .play {
+        transition: opacity .4s ease;
+        visibility: hidden;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        div {
+          transform: translateY(-5px);
+          cursor: pointer;
+          width: 30%;
+          height: 30%;
+          border-radius: 100%;
+          background: rgb(47, 194, 47);
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: transform .4s ease;
+
+          &:hover {
+            filter: brightness(150%);
+          }
+
+          svg {
+            fill: black;
+            width: 50%;
+            height: 50%;
+          }
+
+          img {
+            width: 50%;
+            height: 50%;
+          }
+        }
+      }
+
+      &:hover {
+        .play {
+          visibility: visible;
+          opacity: 1;
+
+          div {
+            transform: translateY(0px);
+          }
+        }
+      }
+
+      img {
+        border-radius: 10px;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

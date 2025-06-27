@@ -1,0 +1,47 @@
+.admin {
+  .statistics {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+
+    .block {
+      border-radius: 5px;
+      background: #333;
+      padding: 0 10px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      h3 {
+        margin-left: 5px;
+      }
+    }
+  }
+
+  .collections {
+    h2 {
+      font-size: 18px;
+      margin-top: 15px;
+    }
+
+    ul {
+      li {
+        margin-top: 8px;
+        border-radius: 5px;
+        width: 100%;
+        font-size: 15px;
+        height: 40px;
+        background: #222;
+        display: flex;
+        align-items: center;
+        padding: 0 10px;
+
+        &:hover {
+          background: #333;
+        }
+      }
+    }
+  }
+}

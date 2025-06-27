@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #010101;
+  --navigation-height: 70px;
+  --card-background: #1a1a1a;
+  --sidebar-width: 220px;
+  --global-padding: 30px;
+  --input-width: 170px;
+  --input-height: 40px;
+  --player-height: 80px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: #fafafa;
+}
+
+body {
+  background: var(--background);
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  display: flex;
+}
+
+button {
+  cursor: pointer;
+}
+
+input {
+  &:focus {
+    outline: none;
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+.pageBaseStyles {
+  height: auto;
+  padding: 0 var(--global-padding);
+  width: 100%;
+  padding-bottom: 100px;
+  margin-top: 90px;
+}
+
+.gridStyles {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+
+  @media (max-width: 1085px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: 920px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 770px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: #666;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+}

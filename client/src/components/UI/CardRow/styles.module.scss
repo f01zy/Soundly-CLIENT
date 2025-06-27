@@ -1,0 +1,90 @@
+.cardLittle {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+  position: relative;
+  border-radius: 5px;
+
+  &:hover {
+    background: var(--card-background);
+  }
+
+  h2 {
+    font-size: 15px;
+  }
+
+  h4,
+  p {
+    color: #9b9b9b;
+    font-size: 14px;
+  }
+
+  .cover {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    position: relative;
+    background: orangered;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    overflow: hidden;
+
+    img {
+      height: 100%;
+      width: auto;
+      border-radius: 3px;
+    }
+
+    .play {
+      transition: opacity .4s ease;
+      visibility: hidden;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      div {
+        width: 50%;
+        cursor: pointer;
+        height: 50%;
+        border-radius: 100%;
+        background: rgb(47, 194, 47);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+          filter: brightness(150%);
+        }
+
+        svg {
+          fill: black;
+          width: 50%;
+          height: 50%;
+        }
+
+        img {
+          width: 50%;
+          height: 50%;
+        }
+      }
+    }
+  }
+
+  &:hover {
+    .cover {
+      .play {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+}

@@ -1,0 +1,1 @@
+export type TMusicMode = "random" | "one" | "order"
